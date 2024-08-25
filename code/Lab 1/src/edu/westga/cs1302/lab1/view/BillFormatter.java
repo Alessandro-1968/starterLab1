@@ -12,10 +12,10 @@ import edu.westga.cs1302.lab1.model.BillItem;
  * @version Fall 2024
  */
 public class BillFormatter {
-	
+
 	public static final double TIPPERCENTAGE = 0.2;
 	public static final double TAXPERCENTAGE = 0.1;
-	
+
 	private DecimalFormat money = new DecimalFormat("#.00");
 
 	/**
@@ -41,7 +41,7 @@ public class BillFormatter {
 		double tip = subTotal * BillFormatter.TIPPERCENTAGE;
 		text += "TAX - $" + tax + System.lineSeparator();
 		text += "TIP - $" + tip + System.lineSeparator();
-		text += "TOTAL - $" + (this.money.format(subTotal) +  this.money.format(tax) + this.money.format(tip));
+		text += "TOTAL - $" + (this.money.format(subTotal) + this.money.format(tax) + this.money.format(tip));
 
 		return text;
 	}
