@@ -29,7 +29,7 @@ public class BillItem {
 		this.name = name;
 		this.amount = amount;
 	}
-	
+
 	/**
 	 * Return the name for the bill item
 	 * 
@@ -41,7 +41,7 @@ public class BillItem {
 	public String getName() {
 		return this.name;
 	}
-	
+
 	/**
 	 * Return the amount for the bill item
 	 * 

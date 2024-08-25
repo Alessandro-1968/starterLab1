@@ -1,5 +1,7 @@
 package edu.westga.cs1302.lab1.view;
 
+import java.text.DecimalFormat;
+
 import edu.westga.cs1302.lab1.model.Bill;
 import edu.westga.cs1302.lab1.model.BillItem;
 
@@ -11,8 +13,10 @@ import edu.westga.cs1302.lab1.model.BillItem;
  */
 public class BillFormatter {
 	
-	public static final double TIP = 0.2;
-	public static final double TAX = 0.1;
+	public static final double TIPPERCENTAGE = 0.2;
+	public static final double TAXPERCENTAGE = 0.1;
+	
+	private DecimalFormat money = new DecimalFormat("#.00");
 
 	/**
 	 * Return a String containing the list of bill items and total for the bill.
@@ -33,11 +37,11 @@ public class BillFormatter {
 
 		text += System.lineSeparator();
 		text += "SUBTOTAL - $" + subTotal + System.lineSeparator();
-		double tax = subTotal * BillFormatter.TAX;
-		double tip = subTotal * BillFormatter.TIP;
+		double tax = subTotal * BillFormatter.TAXPERCENTAGE;
+		double tip = subTotal * BillFormatter.TIPPERCENTAGE;
 		text += "TAX - $" + tax + System.lineSeparator();
 		text += "TIP - $" + tip + System.lineSeparator();
-		text += "TOTAL - $" + (subTotal + tip + tax);
+		text += "TOTAL - $" + (this.money.format(subTotal) +  this.money.format(tax) + this.money.format(tip));
 
 		return text;
 	}
