@@ -1,6 +1,7 @@
-package edu.westga.cs1302.lab1.tests;
+package edu.westga.cs1302.lab1.modelTests;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
@@ -14,21 +15,21 @@ class BillItemTest {
 		assertEquals("Pasta", item.getName());
 		assertEquals(21.99, item.getAmount());
 	}
-	
+
 	@Test
 	void testNewBillItemWithZeroAmount() {
 		assertThrows(IllegalArgumentException.class, () -> {
 			new BillItem("Pasta", 0);
 		});
 	}
-	
+
 	@Test
 	void testNewBillItemWithNegativeAmount() {
 		assertThrows(IllegalArgumentException.class, () -> {
 			new BillItem("Pasta", -21.99);
 		});
 	}
-	
+
 	@Test
 	void testNewBillItemWithNullName() {
 		assertThrows(IllegalArgumentException.class, () -> {
